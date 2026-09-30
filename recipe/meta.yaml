@@ -1,17 +1,17 @@
 {% set name = "perl-sub-quote" %}
-{% set version = "2.006006" %}
-{% set sha256 = "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d" %}
+{% set version = "2.006009" %}
+{% set sha256 = "967282d54d2d51b198c67935594f93e4dea3e54d1e5bced158c94e29be868a4b" %}
 
 package:
   name: {{ name }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  skip: true   # [win]
+  noarch: generic
   number: 0
   run_exports:
     weak:
@@ -34,9 +34,7 @@ test:
 about:
   home: http://metacpan.org/pod/Sub-Quote
   license: GPL-1.0-or-later OR Artistic-1.0-Perl
-  license_file:
-    - {{ environ["PREFIX"] }}/man/man1/perlartistic.1
-    - {{ environ["PREFIX"] }}/man/man1/perlgpl.1
+  license_file: LICENSE
   summary: 'Efficient generation of subroutines via string eval'
 
 extra:
